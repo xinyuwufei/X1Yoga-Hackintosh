@@ -61,16 +61,19 @@ if [ -d ./result ]; then
 fi
 
 if askyes "==>" "Disassemble ACPI tables."; then
+
     cd ./ACPI-Tables
+    find -E . ! -regex '\./(SSDT-[0-9]{1,2}|DSDT)\.aml' -exec rm {} \;
+    cp -v ../../extra/refs.txt ./refs.txt
     if ! $IASL -da -dl -fe refs.txt *.aml; then
         echo "==> Failed to disassemble ACPI tables."
         echo "==> Check the command: "
-        echo "$IASL -e SSDT* -dl DSDT"
+        echo "ASL -da -dl -fe refs.txt *.aml"
         exit 5
     fi
     cd ..
     mkdir result
-    cp -v ../SSDT-UIAC-AL.dsl ./result/SSDT-UIAC-AL.dsl
+    cp -v ../extra/SSDT-UIAC-AL.dsl ./result/SSDT-UIAC-AL.dsl
     mv -v ./ACPI-Tables/DSDT.dsl ./result/origin_DSDT.dsl
     mv -v ./ACPI-Tables/*.dsl ./result
 fi
