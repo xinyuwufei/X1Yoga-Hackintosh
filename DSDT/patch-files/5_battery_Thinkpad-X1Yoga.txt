@@ -1,0 +1,102 @@
+#battery_Thinkpad-X1Yoga.txt
+# created by loppol
+# refers to Lenovo Yoga S1, T450, Guide 'How to patch DSDT for working battery status'
+# fix 16-bit fields
+into method label B1B2 remove_entry;
+into definitionblock code_regex . insert
+begin
+Method (B1B2, 2, NotSerialized) { Return(Or(Arg0, ShiftLeft(Arg1, 8))) }\n
+end;
+into device label EC code_regex HWAK,\s+16, replace_matched begin HWK0,8,HWK1,8, end;
+into device label EC code_regex HSPD,\s+16, replace_matched begin HSP0,8,HSP1,8, end;
+into device label EC code_regex SBRC,\s+16, replace_matched begin SBR0,8,SBR1,8, end;
+into method label GBST code_regex \(SBRC, replaceall_matched begin (B1B2(SBR0,SBR1), end;
+into device label EC code_regex SBFC,\s+16, replace_matched begin SBF0,8,SBF1,8, end;
+into method label GBIF code_regex \(SBFC, replaceall_matched begin (B1B2(SBF0,SBF1), end;
+into device label EC code_regex SBAE,\s+16, replace_matched begin SBE0,8,SBE1,8, end;
+into device label EC code_regex SBRS,\s+16, replace_matched begin SBS0,8,SBS1,8, end;
+into device label EC code_regex SBAC,\s+16, replace_matched begin SBC0,8,SBC1,8, end;
+into method label GBST code_regex \(SBAC, replaceall_matched begin (B1B2(SBC0,SBC1), end;
+into device label EC code_regex SBVO,\s+16, replace_matched begin SBZ0,8,SBZ1,8, end;
+into method label GBST code_regex \(SBVO, replaceall_matched begin (B1B2(SBZ0,SBZ1), end;
+into device label EC code_regex SBAF,\s+16, replace_matched begin SBA0,8,SBA1,8, end;
+into device label EC code_regex SBBS,\s+16, replace_matched begin SBB0,8,SBB1,8 end;
+into device label EC code_regex SBBM,\s+16, replace_matched begin SBM0,8,SBM1,8, end;
+into method label GBIF code_regex \(SBBM, replaceall_matched begin (B1B2(SBM0,SBM1), end;
+into device label EC code_regex SBMD,\s+16, replace_matched begin SBD0,8,SBD1,8, end;
+into device label EC code_regex SBCC,\s+16, replace_matched begin SSA0,8,SSA1,8 end;
+into device label EC code_regex SBDC,\s+16, replace_matched begin SSB0,8,SSB1,8, end;
+into method label GBIF code_regex \(SBDC, replaceall_matched begin (B1B2(SBD0,SBD1), end;
+into device label EC code_regex SBDV,\s+16 replace_matched begin SBV0,8,SBV1,8 end;
+into method label GBIF code_regex \(SBDV, replaceall_matched begin (B1B2(SBV0,SBV1), end;
+into device label EC code_regex SBOM,\s+16, replace_matched begin SBO0,8,SBO1,8, end;
+into device label EC code_regex SBSI,\s+16, replace_matched begin SBI0,8,SBI1,8, end;
+into device label EC code_regex SBDT,\s+16, replace_matched begin SBT0,8,SBT1,8, end;
+into device label EC code_regex SBSN,\s+16 replace_matched begin SBN0,8,SBN1,8 end;
+into method label GBIF code_regex \(SBSN, replaceall_matched begin (B1B2(SBN0,SBN1), end;
+
+
+# fix 32-bit fields
+into method label B1B4 remove_entry;
+into definitionblock code_regex . insert
+begin
+Method (B1B4, 4, NotSerialized)\n
+{\n
+    Store(Arg3, Local0)\n
+    Or(Arg2, ShiftLeft(Local0, 8), Local0)\n
+    Or(Arg1, ShiftLeft(Local0, 8), Local0)\n
+    Or(Arg0, ShiftLeft(Local0, 8), Local0)\n
+    Return(Local0)\n
+}\n
+end;
+into device label EC code_regex HDEN,\s+32 replace_matched begin HDE0,8,HDE1,8,HDE2,8,HDE3,8 end;
+into device label EC code_regex HDEP,\s+32 replace_matched begin HDP0,8,HDP1,8,HDP2,8,HDP3,8 end;
+into device label EC code_regex SBCH,\s+32 replace_matched begin SBH0,8,SBH1,8,SBH2,8,SBH3,8 end;
+into method label GBIF code_regex \(SBCH, replaceall_matched begin (B1B4(SBH0,SBH1,SBH2,SBH3), end;
+
+
+# fix 128-bit buffer fields
+into method label RE1B parent_label EC remove_entry;
+into method label RECB parent_label EC remove_entry;
+into device label EC insert
+begin
+Method (RE1B, 1, NotSerialized)\n
+{\n
+    OperationRegion(ECOR, EmbeddedControl, Arg0, 1)\n
+    Field(ECOR, ByteAcc, NoLock, Preserve) { BYTE, 8 }\n
+    Return(BYTE)\n
+}\n
+Method (RECB, 2, Serialized)\n
+{\n
+    ShiftRight(Arg1, 3, Arg1)\n
+    Name(TEMP, Buffer(Arg1) { })\n
+    Add(Arg0, Arg1, Arg1)\n
+    Store(0, Local0)\n
+    While (LLess(Arg0, Arg1))\n
+    {\n
+        Store(RE1B(Arg0), Index(TEMP, Local0))\n
+        Increment(Arg0)\n
+        Increment(Local0)\n
+    }\n
+    Return(TEMP)\n
+}\n
+end;
+into device label EC code_regex (SBMN,)\s+(128) replace_matched begin BMNX,%2,//%1%2 end;
+into device label EC code_regex (SBDN,)\s+(128) replace_matched begin BDNX,%2,//%1%2 end;
+into method label GBIF code_regex \(SBDN, replaceall_matched begin (RECB(0xA0, 128), end;
+into method label GBIF code_regex \(SBMN, replaceall_matched begin (RECB(0xA0, 128), end;
+
+
+#deal with special cases for HWAC
+into device label EC code_regex HWAC,\s+16, replace_matched begin HWC0,8,HWC1,8, end;
+into method label \_WAK code_regex \\\_SB.PCI0.LPC.EC.HWAC replaceall_matched begin B1B2(\\_SB.PCI0.LPC.EC.HWC0,\\_SB.PCI0.LPC.EC.HWC1) end;
+into method label _L17 code_regex \\\_SB.PCI0.LPC.EC.HWAC replaceall_matched begin B1B2(\\_SB.PCI0.LPC.EC.HWC0,\\_SB.PCI0.LPC.EC.HWC1) end;
+into method label GBIF code_regex \\\_SB.PCI0.LPC.EC.HWAC replaceall_matched begin B1B2(\\_SB.PCI0.LPC.EC.HWC0,\\_SB.PCI0.LPC.EC.HWC1) end;
+
+
+#deal with special cases for SBDV
+into method label GBIF code_regex SBDV replaceall_matched begin B1B2(SBV0,SBV1) end;
+
+
+# disable secondary battery
+into method label _STA parent_label BAT1 replace_content begin Return(0) end;
