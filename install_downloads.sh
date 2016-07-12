@@ -131,11 +131,13 @@ if [ $? -ne 0 ]; then
     done
     if [[ $MINOR_VER -ge 11 ]]; then
         # 10.11 needs BrcmPatchRAM2.kext
-        cd RehabMan-BrcmPatchRAM*/Release && install_kext BrcmPatchRAM2.kext && cd ../..
+        cd RehabMan-BrcmPatchRAM*/Release && install_kext BrcmPatchRAM2.kext && install_kext BrcmNonPatchRAM2.kext && cd ../..
         # 10.11 needs USBInjectAll.kext
         cd RehabMan-USBInjectAll*/Release && install_kext USBInjectAll.kext && cd ../..
         # remove BrcPatchRAM.kext just in case
         $SUDO rm -Rf $SLE/BrcmPatchRAM.kext $KEXTDEST/BrcmPatchRAM.kext
+        # remove BrcmNonPatchRAM.kext just in case
+        $SUDO rm -Rf $SLE/BrcmPatchRAM.kext $KEXTDEST/BrcmNonPatchRAM.kext
         # remove injector just in case
         $SUDO rm -Rf $SLE/BrcmBluetoothInjector.kext $KEXTDEST/BrcmBluetoothInjector.kext
     else
