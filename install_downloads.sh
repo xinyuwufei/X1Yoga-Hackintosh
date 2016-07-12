@@ -164,7 +164,9 @@ if [ $? -ne 0 ]; then
     cd ../../
 fi
 $SUDO rm -Rf $SLE/AppleHDA.kext
-sudo cp -Rf $CURRENTPATH/extra/AppleHDA.kext $LE/AppleHDA.kext
+unzip $CURRENTPATH/extra/AppleHDA-Vanilla/AppleHDA.kext.zip
+sudo cp -Rf $CURRENTPATH/extra/AppleHDA-Vanilla/AppleHDA.kext $SLE/AppleHDA.kext
+sudo cp -Rf $CURRENTPATH/extra/aDummyHDA.kext $LE/aDummyHDA.kext
 # install_kext AppleHDA.kext
 # install (injector) kexts in the repo itself
 # install_kext AppleHDA.kext

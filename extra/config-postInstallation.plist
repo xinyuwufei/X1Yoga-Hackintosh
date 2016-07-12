@@ -223,6 +223,20 @@
 		<true/>
 		<key>KextsToPatch</key>
 		<array>
+						<dict>
+				<key>Comment</key>
+				<string>Patching 11d41984 with 14F15111 codec (patched by AppleHDA Patcher.app)</string>
+				<key>Find</key>
+				<data>
+				hBnUEQ==
+				</data>
+				<key>Name</key>
+				<string>AppleHDA</string>
+				<key>Replace</key>
+				<data>
+				EVHxFA==
+				</data>
+			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>10.11-BCM94352-Airport-Extreme</string>

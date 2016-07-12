@@ -9,5 +9,6 @@ cp -v ./extra/config*.plist ./Clover/
 rm -rf ./Clover/kexts/Other/*
 cp -rv ./extra/Other/ ./Clover/kexts/Other/
 rm -rf ./Clover/ACPI/patched/*
+rm -rf ./extra/AppleHDA-Vanilla/*/
 
 echo '===>done'
