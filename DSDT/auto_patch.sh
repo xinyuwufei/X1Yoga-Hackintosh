@@ -96,8 +96,7 @@ if askyes "==>" "Patch the files."; then
             cp ./result/{patching_DSDT.dsl,patched_${prefix}DSDT.dsl}
         fi
     done
-    find ./patch-files -name "remove_DSM.txt" -exec \
-                $PatchMatic ./result/SSDT-3.dsl {} \;
+    $PatchMatic ./result/SSDT-3.dsl ./patch-files/remove_DSM.txt
     rm ./result/patching_DSDT.dsl
     echo "==> Done."
 fi
