@@ -41,11 +41,13 @@
 
 # TODO
 
-    replace AppleHDA to AppleALC
+    HDMI solution when the environment is available
     
 # Credits  
     Scripts are based on RehabMan's Repo with some modifications
     BIG THANKS FOR 'Great people share their wisdom without asking for anything in return…':
-      RehabMan
+      Mirone
       Pike R. Alpha
+      RehabMan
+      
     
