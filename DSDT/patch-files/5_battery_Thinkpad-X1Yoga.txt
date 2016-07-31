@@ -8,7 +8,7 @@ begin
 Method (B1B2, 2, NotSerialized) { Return(Or(Arg0, ShiftLeft(Arg1, 8))) }\n
 end;
 into device label EC code_regex HWAK,\s+16, replace_matched begin HWK0,8,HWK1,8, end;
-into device label EC code_regex HSPD,\s+16, replace_matched begin HSP0,8,HSP1,8, end;
+
 into device label EC code_regex SBRC,\s+16, replace_matched begin SBR0,8,SBR1,8, end;
 into method label GBST code_regex \(SBRC, replaceall_matched begin (B1B2(SBR0,SBR1), end;
 into device label EC code_regex SBFC,\s+16, replace_matched begin SBF0,8,SBF1,8, end;

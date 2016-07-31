@@ -1,0 +1,28 @@
+#system_Q2B.txt
+# _Q2B - enable LID Sleep
+into method label _Q2B code_regex ([\s\S]*) replace_matched
+begin
+// this method is for lid close\n
+Notify (\\_SB.SLPB, 0x02)\n
+\\VCMS (0x01, \\_SB.LID._LID ())\n
+Notify (\\_SB.LID, 0x80)\n
+end;
+
+into method label _Q2A code_regex ([\s\S]*) replace_matched
+begin
+// this method is for lid close\n
+Notify (\\_SB.SLPB, 0x02)\n
+\\VCMS (0x01, \\_SB.LID._LID ())\n
+Notify (\\_SB.LID, 0x80)\n
+end;
+
+#orginal from sleep related T450 (LED blink)
+# may no effect for dsdt.dsl disassembled by linux
+
+into method label \_WAK code_regex (If.*LEqual.*Arg.*3.*\n.*\n.*NVSS.*)\n(.*Store.*) replaceall_matched
+begin
+%1\n
+            \\_SB.PCI0.LPC.EC.LED(0x00, 0x80)\n
+            \\_SB.PCI0.LPC.EC.LED(0x0A, 0x80)\n
+%2
+end;

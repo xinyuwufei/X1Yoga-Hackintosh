@@ -1,0 +1,23 @@
+# 3.0 fan/temp
+
+# declarations from 16-bit to 8-bit
+into device label EC code_regex HSPD,\s+16, replace_matched begin HFN1,8,HFN2,8, end;
+
+into device label LPC insert
+begin
+                Device (SMCD)\n
+                {\n
+                    Name (_HID, "MON0000")  // _HID: Hardware ID\n
+                    Method (FAN0, 0, NotSerialized)\n
+                    {\n
+                        Store (B1B2 (\_SB.PCI0.LPC.EC.HFN1, \_SB.PCI0.LPC.EC.HFN2), Local0)\n
+                        Return (Local0)\n
+                    }\n
+\n
+                    Method (TCPU, 0, NotSerialized)\n
+                    {\n
+                        Store (\_SB.PCI0.LPC.EC.TMP0, Local0)\n
+                        Return (Local0)\n
+                    }\n
+                }\n
+end;

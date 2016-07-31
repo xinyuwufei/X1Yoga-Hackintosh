@@ -83,9 +83,10 @@ if askyes "==>" "Patch the files."; then
         echo "==> lost ./result/origin_DSDT.dsl"
         exit 6
     fi
+    # change label XHCI to XHC globally
     find . -type f -name 'origin_DSDT.dsl' -exec sed -i '' 's/XHCI/XHC/g' {} +
     cp -v ./result/{origin_DSDT.dsl,patching_DSDT.dsl}
-    for prefix in {1,2,3,4,5}_ ; do
+    for prefix in {1,2,3,4,5,6,7}_ ; do
         N=$(find ./patch-files -name "${prefix}*" |wc -l |awk '{print $1}')
         if [[ x$N == x0 ]];then
             continue
@@ -102,7 +103,7 @@ if askyes "==>" "Patch the files."; then
 fi
 
 if askyes "==>" "Compile ACPI Tables."; then
-    for prefix in origin patched_{1,2,3,4,5} ; do
+    for prefix in origin patched_{1,2,3,4,5,6,7} ; do
         if [ ! -f ./result/${prefix}_DSDT.dsl ]; then
             echo " -> ./result/${prefix}_DSDT.dsl not found. SKIP."
             continue
@@ -116,7 +117,7 @@ if askyes "==>" "Compile ACPI Tables."; then
 fi
 mkdir ./result/dsdt-patching
 mv -v ./result/*DSDT.* ./result/dsdt-patching/
-mv -v ./result/dsdt-patching/patched_5_DSDT.dsl ./result/DSDT.dsl
+cp -v ./result/dsdt-patching/patched_7_DSDT.dsl ./result/DSDT.dsl
 $IASL ./result/*.dsl
 curl -o ~/ssdtPRGen.sh https://raw.githubusercontent.com/Piker-Alpha/ssdtPRGen.sh/Beta/ssdtPRGen.sh
 chmod +x ~/ssdtPRGen.sh

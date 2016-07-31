@@ -8,6 +8,8 @@ SLE=/System/Library/Extensions
 LE=/Library/Extensions
 CURRENTPATH=`pwd`
 #BrcmPatchRAM is installed manually @ if [[ $MINOR_VER -ge 11 ]]; then
+
+# ***note: fakesmc needs to update when it offically supports i7 -6600u
 EXCEPTIONS="FakeSMC_CPUSensors|FakeSMC_GPUSensors|FakeSMC_LPCSensors|FakePCIID_BCM57XX|FakePCIID_AR9280|FakePCIID_Intel_HD_Graphics|FakePCIID_Intel_HDMI_Audio|FakePCIID_Intel_GbX|FakePCIID_XHCIMux|BrcmFirmwareData|BrcmPatchRAM|BrcmNonPatchRAM|USBInjectAll"
 
 # extract minor version (eg. 10.9 vs. 10.10 vs. 10.11)
@@ -195,7 +197,13 @@ sudo cp -Rf $CURRENTPATH/extra/aDummyHDA.kext $LE/aDummyHDA.kext
 
 # force cache rebuild with output
 # $SUDO touch $SLE && $SUDO kextcache -u /
+
+#customize settings for thinkpad ps2 device
 sudo cp -v $CURRENTPATH/extra/voodooPS2Keyboard3FingerInfo.plist /Library/Extensions/VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Keyboard.kext/Contents/Info.plist
+sudo cp -v $CURRENTPATH/extra/VoodooPS2TrackpadRedTrackPoint.plist /Library/Extensions/VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Trackpad.kext/Contents/Info.plist   
+ 
+
+
     sudo kextcache -system-prelinked-kernel
     sudo kextcache -system-caches
     sudo /usr/libexec/repair_packages --repair --standard-pkgs --volume /

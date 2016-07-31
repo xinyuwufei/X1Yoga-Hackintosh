@@ -41,13 +41,18 @@
 
 # TODO
 
-    HDMI solution when the environment is available
+    will Adapt to AppleALC on MAC OS 10.12
+
+# Extra Notes
+	RDM tool and script for screen resolution
+	about_sleep.sh for optional sleep optimizing?
     
-# Credits  
+# Credits and Thanks
     Scripts are based on RehabMan's Repo with some modifications
     BIG THANKS FOR 'Great people share their wisdom without asking for anything in return…':
-      Mirone
-      Pike R. Alpha
       RehabMan
-      
+      Pike R. Alpha
+      tluck
+      shmilee
+
     

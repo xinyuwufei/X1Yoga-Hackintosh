@@ -1,0 +1,26 @@
+into device label IGBE code_regex (Name.*PRW.*\n.*\n.*0x6D.*)\n.*[34] replaceall_matched
+begin
+%1\n
+                    0x00
+end;
+
+into device label XHC code_regex (Name.*PRW.*\n.*\n.*0x6D.*)\n.*[34] replaceall_matched
+begin
+%1\n
+                    0x00
+end;
+
+into method label _DSM parent_label \_SB.PCI0.XHC replace_content
+begin
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
+    {\n
+        "subsystem-id", Buffer() { 0x70, 0x72, 0x00, 0x00 },\n
+        "subsystem-vendor-id", Buffer() { 0x86, 0x80, 0x00, 0x00 },\n
+        "AAPL,current-available", 2100,\n
+        "AAPL,current-extra", 2200,\n
+        "AAPL,current-extra-in-sleep", 1600,\n
+        "AAPL,device-internal", 0x02,\n
+        "AAPL,max-port-current-in-sleep", 2100,\n
+    })\n
+end;

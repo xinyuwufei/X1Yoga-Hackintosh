@@ -1,0 +1,22 @@
+					<key>MouseMultiplierX</key>
+					<integer>2</integer>
+					<key>MouseMultiplierY</key>
+					<integer>2</integer>
+					<key>MouseScrollMultiplierX</key>
+					<integer>10</integer>
+					<key>MouseScrollMultiplierY</key>
+					<integer>10</integer>
+
+
+
+
+<key>Default</key>
+				<dict>
+<key>ActionSwipeDown</key>
+<string>3e d, 7d d, 7d u, 3e u</string>
+<key>ActionSwipeLeft</key>
+<string>3e d, 7c d, 7c u, 3e u</string>
+<key>ActionSwipeRight</key>
+<string>3e d, 7b d, 7b u, 3e u</string>
+<key>ActionSwipeUp</key>
+<string>3e d, 7e d, 7e u, 3e u</string>

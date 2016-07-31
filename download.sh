@@ -19,7 +19,10 @@ if [ ! -d ./downloads ]; then mkdir ./downloads; fi && rm -Rf downloads/* && cd 
 
 # download kexts
 mkdir ./kexts && cd ./kexts
-download os-x-fakesmc-kozlek RehabMan-FakeSMC
+
+# faksemc is currently using a customized version not until it has offically supports i7-6600u
+# download os-x-fakesmc-kozlek RehabMan-FakeSMC
+
 download os-x-voodoo-ps2-controller RehabMan-Voodoo
 #download os-x-realtek-network RehabMan-Realtek-Network
 #download os-x-acpi-backlight RehabMan-Backlight
