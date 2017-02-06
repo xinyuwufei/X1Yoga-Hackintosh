@@ -26,6 +26,16 @@
     BT sometime shows not available after wakeup
     no HDMI codec
 
+# Extra:
+[zsh/iterm2][9f1aecfa]
+
+    show path on finder's title bar:
+        defaults write com.apple.finder _FXShowPosixPathInTitle -bool true; killall Finder
+    show all hidden files:
+        defaults write com.apple.finder AppleShowAllFiles YES; killall Finder
+    install HomeBrew:
+        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
 
 # Credits and Thanks
     Scripts are based on RehabMan's Repo with some modifications
@@ -34,3 +44,5 @@
       Pike R. Alpha
       tluck
       shmilee
+
+  [9f1aecfa]: http://www.jianshu.com/p/7de00c73a2bb "iTerm 2 && Oh My Zsh"
