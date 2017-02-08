@@ -21,10 +21,36 @@
 * ./kexts/HackrNVMeFamily-10_12_3.kext and./Clover/ACPI/patched/SSDT-NVMe.aml are for NVMe SSD
 * ./kexts/AppleALC.kext : I put it in S/L/E, don't know why is not working in Clover/kexts/Other
 
+# Utilities:
+All the file are taken from tlcuk's [post][db8205b4]
+
+    Since we are using EmuVariable it looks for the file nvram.plist to get its values -
+    which is stored in the /ESP now. Install the root utilities and clover scripts and files
+    from Utilities folder to your HD. This step is important as among other things, it
+    installs the rc.scripts to save the nvram contents to a file upon reboot. Using a
+    LogoutHook is more reliable than the CloverDaemon which often fails during shutdown.  If
+    you reinstall Clover from a pkg, then recopy the .fixed version to .local in
+    /etc/rc.boot.d and rc.shutdown.d.
+
+    In a Terminal run:
+        cd ~/Downloads/T460-distribute/Utilities/root
+        sudo cp -a * /
+        sudo defaults write com.apple.loginwindow LogoutHook/etc/rc.shutdown.d/80.save_nvram_plist.local
+
+# HDMI Audio:
+[guide-fix-skylake-hdmidp-output](http://www.insanelymac.com/forum/topic/319211-guide-fix-skylake-hdmidp-output/)
+
+[OS X HD5x0/AMD/Nvidia HDMI Audio dsdt/ssdt](https://github.com/toleda/audio_hdmi_100series)
+
+In clover config/kextsToPatch(Credits:syscl):
+
+        name: AppleIntelSKLGraphicsFramebuffer
+        find: 02040A000004000087010000
+        replace: 02040A000008000087010000
+
 # current Problem:
 
     BT sometime shows not available after wakeup
-    no HDMI codec
 
 # Extra:
 [zsh/iterm2][9f1aecfa]
@@ -46,3 +72,4 @@
       shmilee
 
   [9f1aecfa]: http://www.jianshu.com/p/7de00c73a2bb "iTerm 2 && Oh My Zsh"
+  [db8205b4]: http://www.insanelymac.com/forum/topic/315451-guide-lenovo-t460-macos-with-clover/page-1 "[GUIDE] Lenovo T460 macOS with Clover"

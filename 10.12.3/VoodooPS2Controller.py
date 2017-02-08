@@ -1,9 +1,11 @@
+#coding=utf-8
 import plistlib as pl
 '''
 this script changes thinkpad TrackPoint(小红点)'s speed as well as adding 3 finger gestures
 '''
-VoodooPS2Trackpad='kexts/VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Trackpad.kext/Contents/Info.plist'
-VoodooPS2Keyboard='kexts/VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Keyboard.kext/Contents/Info.plist'
+
+VoodooPS2Trackpad='./kexts/VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Trackpad.kext/Contents/Info.plist'
+VoodooPS2Keyboard='./kexts/VoodooPS2Controller.kext/Contents/PlugIns/VoodooPS2Keyboard.kext/Contents/Info.plist'
 
 TrackpadRedTrackPointpath='IOKitPersonalities,Synaptics TouchPad,Platform Profile,Default'
 _3fingerGesturePath='IOKitPersonalities,ApplePS2Keyboard,Platform Profile,Default'

@@ -10,15 +10,108 @@
 			<false/>
 			<key>DropOEM_DSM</key>
 			<true/>
-			<key>Fixes</key>
-			<dict>
-				<key>FixHDA_8000</key>
-				<true/>
-			</dict>
 			<key>Name</key>
 			<string>DSDT.aml</string>
 			<key>Patches</key>
 			<array>
+				<dict>
+					<key>Comment</key>
+					<string>change _DSM to XDSM</string>
+					<key>Disabled</key>
+					<true/>
+					<key>Find</key>
+					<data>
+					X0RTTQ==
+					</data>
+					<key>Replace</key>
+					<data>
+					WERTTQ==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change _OSI to XOSI</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					X09TSQ==
+					</data>
+					<key>Replace</key>
+					<data>
+					WE9TSQ==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change GFX0 to IGPU</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					R0ZYMA==
+					</data>
+					<key>Replace</key>
+					<data>
+					SUdQVQ==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change HECI to IMEI</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					SEVDSQ==
+					</data>
+					<key>Replace</key>
+					<data>
+					SU1FSQ==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change SAT1 to SATA</string>
+					<key>Disabled</key>
+					<true/>
+					<key>Find</key>
+					<data>
+					U0FUMQ==
+					</data>
+					<key>Replace</key>
+					<data>
+					U0FUQQ==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change _PTS to ZPTS</string>
+					<key>Disabled</key>
+					<true/>
+					<key>Find</key>
+					<data>
+					X1BUUwE=
+					</data>
+					<key>Replace</key>
+					<data>
+					WlBUUwE=
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change _WAK to ZWAK (T460)</string>
+					<key>Disabled</key>
+					<true/>
+					<key>Find</key>
+					<data>
+					X1dBSwk=
+					</data>
+					<key>Replace</key>
+					<data>
+					WldBSwk=
+					</data>
+				</dict>
 				<dict>
 					<key>Comment</key>
 					<string>Rename HDAS to HDEF</string>
@@ -62,6 +155,8 @@
 			<string>SSDT-12.aml</string>
 			<string>SSDT-UIAC-AL.aml</string>
 			<string>SSDT-NVMe.aml</string>
+			<string>SSDT-XOSI.aml</string>
+			<string>SSDT-IGPU-T460.aml</string>
 		</array>
 	</dict>
 	<key>Boot</key>
@@ -96,10 +191,18 @@
 				<key>Device</key>
 				<string>IntelGFX</string>
 				<key>Key</key>
-				<string>AAPL00,PanelCycleDelay</string>
+				<string>hda-gfx</string>
+				<key>Value</key>
+				<string>onboard-1</string>
+			</dict>
+			<dict>
+				<key>Device</key>
+				<string>IntelGFX</string>
+				<key>Key</key>
+				<string>AAPL00,PanelPowerOff</string>
 				<key>Value</key>
 				<data>
-				+gAAAA==
+				EQAAAA==
 				</data>
 			</dict>
 			<dict>
@@ -126,10 +229,10 @@
 				<key>Device</key>
 				<string>IntelGFX</string>
 				<key>Key</key>
-				<string>AAPL,GfxYTile</string>
+				<string>AAPL00,PanelCycleDelay</string>
 				<key>Value</key>
 				<data>
-				AQAAAA==
+				+gAAAA==
 				</data>
 			</dict>
 			<dict>
@@ -146,24 +249,6 @@
 				<key>Device</key>
 				<string>IntelGFX</string>
 				<key>Key</key>
-				<string>AAPL00,PanelPowerUp</string>
-				<key>Value</key>
-				<data>
-				MAAAAA==
-				</data>
-			</dict>
-			<dict>
-				<key>Device</key>
-				<string>IntelGFX</string>
-				<key>Key</key>
-				<string>hda-gfx</string>
-				<key>Value</key>
-				<string>onboard-1</string>
-			</dict>
-			<dict>
-				<key>Device</key>
-				<string>IntelGFX</string>
-				<key>Key</key>
 				<string>graphic-options</string>
 				<key>Value</key>
 				<data>
@@ -174,18 +259,23 @@
 				<key>Device</key>
 				<string>IntelGFX</string>
 				<key>Key</key>
-				<string>AAPL00,PanelPowerOff</string>
+				<string>AAPL,GfxYTile</string>
 				<key>Value</key>
 				<data>
-				EQAAAA==
+				AQAAAA==
+				</data>
+			</dict>
+			<dict>
+				<key>Device</key>
+				<string>IntelGFX</string>
+				<key>Key</key>
+				<string>AAPL00,PanelPowerUp</string>
+				<key>Value</key>
+				<data>
+				MAAAAA==
 				</data>
 			</dict>
 		</array>
-		<key>Audio</key>
-		<dict>
-			<key>Inject</key>
-			<string>3</string>
-		</dict>
 		<key>FakeID</key>
 		<dict>
 			<key>WIFI</key>
@@ -280,6 +370,8 @@
 		<false/>
 		<key>Debug</key>
 		<false/>
+		<key>DellSMBIOSPatch</key>
+		<false/>
 		<key>ForceKextsToLoad</key>
 		<array>
 			<string>\System\Library\Extensions\IONetworkingFamily.kext</string>
@@ -296,18 +388,36 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>10.11+-BCM94352-Airport-Extreme-skvo</string>
+				<string>10.12-BCM94352-0x43b114e4-Info.plist-bpresles</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
 				<data>
-				axAAAHUN
+				PHN0cmluZz5wY2kxNGU0LDQzYmE8L3N0cmluZz4=
+				</data>
+				<key>InfoPlistPatch</key>
+				<true/>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Replace</key>
+				<data>
+				PHN0cmluZz5wY2kxNGU0LDQzYjE8L3N0cmluZz4=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>10.11-BCM94352-CC=#a-Ramalama</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				QYP8/3QsSA==
 				</data>
 				<key>Name</key>
 				<string>AirPortBrcm4360</string>
 				<key>Replace</key>
 				<data>
-				axAAAJCQ
+				ZscGI2HrKw==
 				</data>
 			</dict>
 			<dict>
@@ -344,52 +454,18 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>10.10-BCM94352-5GHz-US-FCC-dv</string>
+				<string>10.11+-BCM94352-Airport-Extreme-skvo</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
 				<data>
-				QYP8/3QsSA==
+				axAAAHUN
 				</data>
 				<key>Name</key>
 				<string>AirPortBrcm4360</string>
 				<key>Replace</key>
 				<data>
-				ZscGVVPrKw==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>10.11+-BCM94352-Whitelest-0x4331-iMac14,3-skvo</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				TWFjLUM2RUZBNjM5NjJGQzZFQTA=
-				</data>
-				<key>Name</key>
-				<string>AirPortBrcm4360</string>
-				<key>Replace</key>
-				<data>
-				TWFjLTI3QURCQjdCNENFRThFNjE=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>10.12-BCM94352-0x43b114e4-Info.plist-bpresles</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				PHN0cmluZz5wY2kxNGU0LDQzYmE8L3N0cmluZz4=
-				</data>
-				<key>InfoPlistPatch</key>
-				<true/>
-				<key>Name</key>
-				<string>AirPortBrcm4360</string>
-				<key>Replace</key>
-				<data>
-				PHN0cmluZz5wY2kxNGU0LDQzYjE8L3N0cmluZz4=
+				axAAAJCQ
 				</data>
 			</dict>
 			<dict>
@@ -426,7 +502,23 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>10.11-BCM94352-CC=#a-Ramalama</string>
+				<string>10.11+-BCM94352-Whitelest-0x4331-iMac14,3-skvo</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				TWFjLUM2RUZBNjM5NjJGQzZFQTA=
+				</data>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Replace</key>
+				<data>
+				TWFjLTI3QURCQjdCNENFRThFNjE=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>10.10-BCM94352-5GHz-US-FCC-dv</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
@@ -437,14 +529,14 @@
 				<string>AirPortBrcm4360</string>
 				<key>Replace</key>
 				<data>
-				ZscGI2HrKw==
+				ZscGVVPrKw==
 				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>Patching 11d4198b with 14F15111 codec (patched by AppleHDA Patcher.app)</string>
 				<key>Disabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
 				<data>
 				ixnUEQ==
@@ -454,6 +546,22 @@
 				<key>Replace</key>
 				<data>
 				EVHxFA==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>HDMI-audio, port 0204, 0x19160000 - T460 HDMI on right side</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				AgQKAAAEAACHAQAA
+				</data>
+				<key>Name</key>
+				<string>AppleIntelSKLGraphicsFramebuffer</string>
+				<key>Replace</key>
+				<data>
+				AgQKAAAIAACHAQAA
 				</data>
 			</dict>
 			<dict>
@@ -474,6 +582,22 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
+				<string>eDP, port 0000, 0x191e0000, 0x19160000, 0x19260000, 0x19270000, 0x191b0000, 0x19160002, 0x19260002, 0x191e0003, 0x19260004, 0x19270004, 0x193b0005 credit syscl</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				AAAIAAIAAACYAAAAAQUJAAAEAAA=
+				</data>
+				<key>Name</key>
+				<string>com.apple.driver.AppleIntelSKLGraphicsFramebuffer</string>
+				<key>Replace</key>
+				<data>
+				AAAIAAAEAACYAAAAAQUJAAAEAAA=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>Disable minStolenSize less or equal fStolenMemorySize assertion, 10.12.0 ( (based on Austere.J patch)</string>
 				<key>Disabled</key>
 				<false/>
@@ -490,18 +614,18 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>eDP, port 0000, 0x191e0000, 0x19160000, 0x19260000, 0x19270000, 0x191b0000, 0x19160002, 0x19260002, 0x191e0003, 0x19260004, 0x19270004, 0x193b0005 credit syscl</string>
+				<string>Enable TRIM for SSD</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
 				<data>
-				AAAIAAIAAACYAAAAAQUJAAAEAAA=
+				AEFQUExFIFNTRAA=
 				</data>
 				<key>Name</key>
-				<string>com.apple.driver.AppleIntelSKLGraphicsFramebuffer</string>
+				<string>com.apple.iokit.IOAHCIBlockStorage</string>
 				<key>Replace</key>
 				<data>
-				AAAIAAAEAACYAAAAAQUJAAAEAAA=
+				AAAAAAAAAAAAAAA=
 				</data>
 			</dict>
 		</array>
@@ -543,8 +667,6 @@
 		<true/>
 		<key>ProductName</key>
 		<string>MacBookPro13,1</string>
-		<key>SerialNumber</key>
-		<string>C02RJDTWGVC1</string>
 		<key>Trust</key>
 		<false/>
 		<key>Version</key>
