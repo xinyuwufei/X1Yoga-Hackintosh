@@ -33,7 +33,7 @@ All the file are taken from tlcuk's [post][db8205b4]
     /etc/rc.boot.d and rc.shutdown.d.
 
     In a Terminal run:
-        cd ~/Downloads/X1Yoga-Hackintosh/Utilities/root
+        cd ~/Downloads/X1Yoga-Hackintosh/10.12.X/Utilities/root
         sudo cp -a * /
         sudo defaults write com.apple.loginwindow LogoutHook/etc/rc.shutdown.d/80.save_nvram_plist.local
 
