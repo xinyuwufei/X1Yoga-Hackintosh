@@ -17,9 +17,9 @@
   or taking the advantage in 10.12.X folder
 
 * if you are using NVMe SSD as the boot disk you may encounter 'Couldn't Unmount Disk' Error at the end of installation,you always can install in a HDD and CCC it after
-
 * ./kexts/HackrNVMeFamily-10_12_3.kext and./Clover/ACPI/patched/SSDT-NVMe.aml are for NVMe SSD
 * ./kexts/AppleALC.kext : I put it in S/L/E, don't know why is not working in Clover/kexts/Other
+* mic doesn't work on AppleALC,now uses aDummyHDA.kext(put to L/E is enough)
 
 # Utilities:
 All the file are taken from tlcuk's [post][db8205b4]
@@ -70,6 +70,7 @@ In clover config/kextsToPatch(Credits:syscl):
       Pike R. Alpha
       tluck
       shmilee
+      syscl
 
   [9f1aecfa]: http://www.jianshu.com/p/7de00c73a2bb "iTerm 2 && Oh My Zsh"
   [db8205b4]: http://www.insanelymac.com/forum/topic/315451-guide-lenovo-t460-macos-with-clover/page-1 "[GUIDE] Lenovo T460 macOS with Clover"
