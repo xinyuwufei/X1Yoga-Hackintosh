@@ -18,8 +18,8 @@
 
 * if you are using NVMe SSD as the boot disk you may encounter 'Couldn't Unmount Disk' Error at the end of installation,you always can install in a HDD and CCC it after
 * ./kexts/HackrNVMeFamily-10_12_3.kext and./Clover/ACPI/patched/SSDT-NVMe.aml are for NVMe SSD
-* ./kexts/AppleALC.kext : I put it in S/L/E, don't know why is not working in Clover/kexts/Other
-* mic doesn't work on AppleALC,now uses aDummyHDA.kext(put to L/E is enough)
+* ./kexts/AppleALC.kext : I put it in L/E, don't know why is not working in Clover/kexts/Other
+
 
 # Utilities:
 All the file are taken from tlcuk's [post][db8205b4]
