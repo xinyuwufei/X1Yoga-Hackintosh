@@ -1,0 +1,75 @@
+#   Inject Audio info
+into method label _DSM parent_label HDEF remove_entry;
+into device label HDEF insert
+begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+                    ADBG ("HDAS _DSM")\n
+                    If (LNot (Arg2))\n
+                    {\n
+                        Return (Buffer (One)\n
+                        {\n
+                             0x03                                           \n
+                        })\n
+                    }\n
+\n
+                    Return (Package (0x14)\n
+                    {\n
+                        "AAPL,slot-name", \n
+                        Buffer (0x09)\n
+                        {\n
+                            "Built in"\n
+                        }, \n
+\n
+                        "layout-id", \n
+                        Buffer (0x04)\n
+                        {\n
+                             0x03, 0x00, 0x00, 0x00                         \n
+                        }, \n
+\n
+                        "codec-id", \n
+                        Buffer (0x04)\n
+                        {\n
+                             0x11, 0x51, 0xF1, 0x14                         \n
+                        }, \n
+\n
+                        "model", \n
+                        Buffer (0x18)\n
+                        {\n
+                            "Conexant 20753 HD Audio"\n
+                        }, \n
+\n
+                        "name", \n
+                        Buffer (0x0F)\n
+                        {\n
+                            "Conexant 20753"\n
+                        }, \n
+\n
+                        "device_type", \n
+                        Buffer (0x11)\n
+                        {\n
+                            "Audio Controller"\n
+                        }, \n
+\n
+                        "built-in", \n
+                        Buffer (One)\n
+                        {\n
+                             0x00                                           \n
+                        }, \n
+\n
+                        "PinConfigurations", \n
+                        Buffer (Zero) {}, \n
+                        "hda-gfx", \n
+                        Buffer (0x0A)\n
+                        {\n
+                            "onboard-1"\n
+                        }, \n
+\n
+                        "MaximumBootBeepVolume", \n
+                        0x2F\n
+    })\n
+}\n
+end
+
+
+

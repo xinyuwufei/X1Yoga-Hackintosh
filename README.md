@@ -48,6 +48,12 @@ In clover config/kextsToPatch(Credits:syscl):
         find: 02040A000004000087010000
         replace: 02040A000008000087010000
 
+# VoodooPS2Controller:
+A script for changing trackpoint speed as well as adding 3 finger gesture support
+
+        python VoodooPS2Controller.py
+
+
 # current Problem:
 
     BT sometime shows not available after wakeup
@@ -71,6 +77,8 @@ In clover config/kextsToPatch(Credits:syscl):
       tluck
       shmilee
       syscl
+
+### '折腾不是为折腾而折腾，只为偷懒而勤奋；简洁才是王道。'
 
   [9f1aecfa]: http://www.jianshu.com/p/7de00c73a2bb "iTerm 2 && Oh My Zsh"
   [db8205b4]: http://www.insanelymac.com/forum/topic/315451-guide-lenovo-t460-macos-with-clover/page-1 "[GUIDE] Lenovo T460 macOS with Clover"
