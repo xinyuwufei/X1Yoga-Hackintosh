@@ -48,6 +48,8 @@ In clover config/kextsToPatch(Credits:syscl):
         find: 02040A000004000087010000
         replace: 02040A000008000087010000
 
+## HIDPI:
+[10.12 Solution](http://bbs.pcbeta.com/viewthread-1722308-1-1.html)
 # VoodooPS2Controller:
 A script for changing trackpoint speed as well as adding 3 finger gesture support
 
