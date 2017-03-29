@@ -18,7 +18,7 @@
 
 * if you are using NVMe SSD as the boot disk you may encounter 'Couldn't Unmount Disk' Error at the end of installation,you always can install in a HDD and CCC(**Carbon Copy Cloner**) it after
 * ./kexts/HackrNVMeFamily-10_12_3.kext and./Clover/ACPI/patched/SSDT-NVMe.aml are for NVMe SSD
-* ./kexts/AppleALC.kext :  ~~I put it in L/E, don't know why is not working in Clover/kexts/Other ~~
+* ./kexts/AppleALC.kext :is for cx audio, you can put in L/E or S/L/E or Clover/kexts/Other
 
 
 # Utilities:
