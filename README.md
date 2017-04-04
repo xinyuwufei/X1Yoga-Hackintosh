@@ -58,7 +58,9 @@ A script for changing trackpoint speed as well as adding 3 finger gesture suppor
 
 # current Problem:
 
-    BT sometime shows not available after wakeup
+**10.12.4 has the problem of brightness control**
+
+BT sometime shows not available after wakeup
 
 # Extra:
 [zsh/iterm2][9f1aecfa]
