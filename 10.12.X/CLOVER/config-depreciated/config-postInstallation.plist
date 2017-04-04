@@ -146,7 +146,7 @@
 		</dict>
 		<key>SortedOrder</key>
 		<array>
-			<string>SSDT-pr.aml</string>
+			<string>SSDT.aml</string>
 			<string>SSDT-0.aml</string>
 			<string>SSDT-1.aml</string>
 			<string>SSDT-2.aml</string>
@@ -180,8 +180,6 @@
 	</dict>
 	<key>CPU</key>
 	<dict>
-		<key>HWPEnable</key>
-		<true/>
 		<key>UseARTFrequency</key>
 		<false/>
 	</dict>
@@ -192,44 +190,6 @@
 			<dict>
 				<key>Device</key>
 				<string>IntelGFX</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Key</key>
-				<string>graphic-options</string>
-				<key>Value</key>
-				<data>
-				DAAAAA==
-				</data>
-			</dict>
-			<dict>
-				<key>Device</key>
-				<string>IntelGFX</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Key</key>
-				<string>AAPL00,PanelPowerUp</string>
-				<key>Value</key>
-				<data>
-				MAAAAA==
-				</data>
-			</dict>
-			<dict>
-				<key>Device</key>
-				<string>IntelGFX</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Key</key>
-				<string>AAPL,Gfx324</string>
-				<key>Value</key>
-				<data>
-				AQAAAA==
-				</data>
-			</dict>
-			<dict>
-				<key>Device</key>
-				<string>IntelGFX</string>
-				<key>Disabled</key>
-				<false/>
 				<key>Key</key>
 				<string>hda-gfx</string>
 				<key>Value</key>
@@ -238,44 +198,6 @@
 			<dict>
 				<key>Device</key>
 				<string>IntelGFX</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Key</key>
-				<string>AAPL00,PanelCycleDelay</string>
-				<key>Value</key>
-				<data>
-				+gAAAA==
-				</data>
-			</dict>
-			<dict>
-				<key>Device</key>
-				<string>IntelGFX</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Key</key>
-				<string>AAPL00,PanelPowerDown</string>
-				<key>Value</key>
-				<data>
-				PAAAAA==
-				</data>
-			</dict>
-			<dict>
-				<key>Device</key>
-				<string>IntelGFX</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Key</key>
-				<string>AAPL00,PanelPowerOn</string>
-				<key>Value</key>
-				<data>
-				GQEAAA==
-				</data>
-			</dict>
-			<dict>
-				<key>Device</key>
-				<string>IntelGFX</string>
-				<key>Disabled</key>
-				<false/>
 				<key>Key</key>
 				<string>AAPL00,PanelPowerOff</string>
 				<key>Value</key>
@@ -286,13 +208,71 @@
 			<dict>
 				<key>Device</key>
 				<string>IntelGFX</string>
-				<key>Disabled</key>
-				<false/>
+				<key>Key</key>
+				<string>AAPL00,PanelPowerOn</string>
+				<key>Value</key>
+				<data>
+				GQEAAA==
+				</data>
+			</dict>
+			<dict>
+				<key>Device</key>
+				<string>IntelGFX</string>
+				<key>Key</key>
+				<string>AAPL,Gfx324</string>
+				<key>Value</key>
+				<data>
+				AQAAAA==
+				</data>
+			</dict>
+			<dict>
+				<key>Device</key>
+				<string>IntelGFX</string>
+				<key>Key</key>
+				<string>AAPL00,PanelCycleDelay</string>
+				<key>Value</key>
+				<data>
+				+gAAAA==
+				</data>
+			</dict>
+			<dict>
+				<key>Device</key>
+				<string>IntelGFX</string>
+				<key>Key</key>
+				<string>AAPL00,PanelPowerDown</string>
+				<key>Value</key>
+				<data>
+				PAAAAA==
+				</data>
+			</dict>
+			<dict>
+				<key>Device</key>
+				<string>IntelGFX</string>
+				<key>Key</key>
+				<string>graphic-options</string>
+				<key>Value</key>
+				<data>
+				DAAAAA==
+				</data>
+			</dict>
+			<dict>
+				<key>Device</key>
+				<string>IntelGFX</string>
 				<key>Key</key>
 				<string>AAPL,GfxYTile</string>
 				<key>Value</key>
 				<data>
 				AQAAAA==
+				</data>
+			</dict>
+			<dict>
+				<key>Device</key>
+				<string>IntelGFX</string>
+				<key>Key</key>
+				<string>AAPL00,PanelPowerUp</string>
+				<key>Value</key>
+				<data>
+				MAAAAA==
 				</data>
 			</dict>
 		</array>
@@ -385,7 +365,7 @@
 	<key>KernelAndKextPatches</key>
 	<dict>
 		<key>AppleRTC</key>
-		<true/>
+		<false/>
 		<key>AsusAICPUPM</key>
 		<false/>
 		<key>Debug</key>
@@ -404,30 +384,93 @@
 		<false/>
 		<key>KernelPm</key>
 		<true/>
-		<key>KernelToPatch</key>
-		<array>
-			<dict>
-				<key>Comment</key>
-				<string>MSR 0xE2 _xcpm_idle instant reboot(c) Pike R. Alpha</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				ILniAAAADzA=
-				</data>
-				<key>MatchOS</key>
-				<string>10.12</string>
-				<key>Replace</key>
-				<data>
-				ILniAAAAkJA=
-				</data>
-			</dict>
-		</array>
 		<key>KextsToPatch</key>
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>10.10-BCM94352-5GHz-US-FCC-dv</string>
+				<string>10.12-BCM94352-0x43b114e4-Info.plist-bpresles</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				PHN0cmluZz5wY2kxNGU0LDQzYmE8L3N0cmluZz4=
+				</data>
+				<key>InfoPlistPatch</key>
+				<true/>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Replace</key>
+				<data>
+				PHN0cmluZz5wY2kxNGU0LDQzYjE8L3N0cmluZz4=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>10.11-BCM94352-CC=#a-Ramalama</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				QYP8/3QsSA==
+				</data>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Replace</key>
+				<data>
+				ZscGI2HrKw==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>10.9-BCM94352-5 GHz</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				AVhU
+				</data>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Replace</key>
+				<data>
+				AVhY
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>10.12-BCM94352-fvco-darkvoid</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				gflSqgAAdSk=
+				</data>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Replace</key>
+				<data>
+				gflSqgAAZpA=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>10.11+-BCM94352-Airport-Extreme-skvo</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				axAAAHUN
+				</data>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Replace</key>
+				<data>
+				axAAAJCQ
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>10.11+-BCM94352-5GHz-US-FCC-darkvoid</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
@@ -475,23 +518,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>10.9-BCM94352-5 GHz</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				AVhU
-				</data>
-				<key>Name</key>
-				<string>AirPortBrcm4360</string>
-				<key>Replace</key>
-				<data>
-				AVhY
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>10.11+-BCM94352-5GHz-US-FCC-darkvoid</string>
+				<string>10.10-BCM94352-5GHz-US-FCC-dv</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
@@ -507,75 +534,9 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>10.11-BCM94352-CC=#a-Ramalama</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				QYP8/3QsSA==
-				</data>
-				<key>Name</key>
-				<string>AirPortBrcm4360</string>
-				<key>Replace</key>
-				<data>
-				ZscGI2HrKw==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>10.12-BCM94352-0x43b114e4-Info.plist-bpresles</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				PHN0cmluZz5wY2kxNGU0LDQzYmE8L3N0cmluZz4=
-				</data>
-				<key>InfoPlistPatch</key>
-				<true/>
-				<key>Name</key>
-				<string>AirPortBrcm4360</string>
-				<key>Replace</key>
-				<data>
-				PHN0cmluZz5wY2kxNGU0LDQzYjE8L3N0cmluZz4=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>10.12-BCM94352-fvco-darkvoid</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				gflSqgAAdSk=
-				</data>
-				<key>Name</key>
-				<string>AirPortBrcm4360</string>
-				<key>Replace</key>
-				<data>
-				gflSqgAAZpA=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>10.11+-BCM94352-Airport-Extreme-skvo</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				axAAAHUN
-				</data>
-				<key>Name</key>
-				<string>AirPortBrcm4360</string>
-				<key>Replace</key>
-				<data>
-				axAAAJCQ
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>Patching 11d4198b with 14F15111 codec (patched by AppleHDA Patcher.app)</string>
 				<key>Disabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
 				<data>
 				ixnUEQ==
@@ -621,22 +582,6 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Disable minStolenSize less or equal fStolenMemorySize assertion, 10.12.0 ( (based on Austere.J patch)</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				iUXIOcZ2UQ==
-				</data>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelSKLGraphicsFramebuffer</string>
-				<key>Replace</key>
-				<data>
-				iUXIOcbrUQ==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>eDP, port 0000, 0x191e0000, 0x19160000, 0x19260000, 0x19270000, 0x191b0000, 0x19160002, 0x19260002, 0x191e0003, 0x19260004, 0x19270004, 0x193b0005 credit syscl</string>
 				<key>Disabled</key>
 				<false/>
@@ -649,6 +594,22 @@
 				<key>Replace</key>
 				<data>
 				AAAIAAAEAACYAAAAAQUJAAAEAAA=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Disable minStolenSize less or equal fStolenMemorySize assertion, 10.12.0 ( (based on Austere.J patch)</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				iUXIOcZ2UQ==
+				</data>
+				<key>Name</key>
+				<string>com.apple.driver.AppleIntelSKLGraphicsFramebuffer</string>
+				<key>Replace</key>
+				<data>
+				iUXIOcbrUQ==
 				</data>
 			</dict>
 			<dict>
@@ -679,11 +640,11 @@
 	<key>SMBIOS</key>
 	<dict>
 		<key>BiosReleaseDate</key>
-		<string>12/22/2016</string>
+		<string>11/15/2016</string>
 		<key>BiosVendor</key>
 		<string>Apple Inc.</string>
 		<key>BiosVersion</key>
-		<string>MBP131.88Z.0205.B11.1612220123</string>
+		<string>MBP131.88Z.0205.B07.1611151504</string>
 		<key>Board-ID</key>
 		<string>Mac-473D31EABEB93F9B</string>
 		<key>BoardManufacturer</key>
@@ -695,7 +656,7 @@
 		<key>ChassisManufacturer</key>
 		<string>Apple Inc.</string>
 		<key>ChassisType</key>
-		<string>0x09</string>
+		<string>0x08</string>
 		<key>Family</key>
 		<string>MacBook Pro</string>
 		<key>LocationInChassis</key>
@@ -706,8 +667,6 @@
 		<true/>
 		<key>ProductName</key>
 		<string>MacBookPro13,1</string>
-		<key>SerialNumber</key>
-		<string>C02SLHACGVC1</string>
 		<key>Trust</key>
 		<false/>
 		<key>Version</key>
