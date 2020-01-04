@@ -8,11 +8,11 @@
 	Display: 1920 x 1080
 	WIFI/BT: Bcm94352z(Lenovo FRU)
 	SSD: SM961
-  Audio:
-  MicroSD:
+  	Audio: CX20753/4
+  	MicroSD: REALTEK RTS525A SD CARD READER
 	BIOS:
 	OS X: 10.15.2
-	BootLoader：Clover+GPT
+	BootLoader：Clover(r5102)+GPT
 
 # Installation/Post-Installation:
 ### Backup
@@ -47,7 +47,7 @@
 | Audio Playback                       | ✅      | `AppleALC.kext` with Layout ID = 15                          | -                                                            |
 | Full Graphics Accleration (QE/CI)    | ✅      | `WhateverGreen.kext`                                         | -                                                            |
 | Brightness Adjustments               | ✅      | `WhateverGreen.kext` and `SSDT-PNLF.aml`             | -                                                            |
-| Micro SD Card Reader                 |  ❌      | have not Patched `AppleUSBCardReader.kext`                            | -                                                            |
+| Micro SD Card Reader                 |  ❌      | Sinetek-rtsx.kext may be a solution                           | -                                                            |
 | USB 3.1                              | ⚠️    | `USBInjectAll.kext` , `SSDT-UAIC.aml`                        | Pen and Touch support as well as sd card may need to redo the usb injection                                                            |
 | HiDPI *(Optional)*                   | ✅      | [xzhih/one-key-hidpi](https://github.com/xzhih/one-key-hidpi) | Scaling issues |
 | Battery life                         | ✅      | Non-NVME SSD, proper power management setup (CPU Power Management, GPU Power Management) | NOt test,Drops 10% per hour for light programming tasks               |
