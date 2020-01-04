@@ -29,8 +29,11 @@
     or taking the advantage => 10.15.X folder
 
 # Extras:
-- Win10 time/ timeZone consistency:
-  - https://blog.csdn.net/skykingf/article/details/13273397
+- [Win10 time/ timeZone consistency](https://blog.csdn.net/skykingf/article/details/13273397)
+- [Clover InjectKext and VirtualSMC](https://www.tonymacx86.com/threads/clover-injectkext-and-virtualsmc.271450/)
+- [An iDiot's Guide To Lilu and its Plug-ins](https://www.tonymacx86.com/threads/an-idiots-guide-to-lilu-and-its-plug-ins.260063/)
+- [set up Clover Theme](http://bbs.pcbeta.com/forum.php?mod=viewthread&tid=1696010)
+
 
 | Feature                              | Status | Dependency                                                   | Remarks                                                      |
 | :----------------------------------- | ------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
