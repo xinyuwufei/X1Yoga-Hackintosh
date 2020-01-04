@@ -1,0 +1,59 @@
+into method label _Q15 replace_content
+begin
+// Brightness Down\n
+    Notify(\_SB.PCI0.LPC.KBD, 0x0405)\n
+end;
+into method label _Q14 replace_content
+begin
+// Brightness Up\n
+    Notify(\_SB.PCI0.LPC.KBD, 0x0406)\n
+end;
+
+# _Q6A (Fn+F4) Microphone Mute key -- Mapped to notification center
+into method label _Q6A replace_content
+begin
+    Notify(\_SB.PCI0.LPC.KBD, 0x0368)\n
+ 
+end;
+
+# _Q16 (Fn+F7) Projector / Mirror mode key
+into method label _Q16 replace_content
+begin
+    Notify(\_SB.PCI0.LPC.KBD, 0x046e)\n
+
+end;
+
+# _Q64 (Fn+F8) Wireless disable key -- mapped to something (don't recall what ATM)
+into method label _Q64 replace_content
+begin
+    Notify(\_SB.PCI0.LPC.KBD, 0x0369)\n
+ 
+end;
+
+# _Q66 (Fn+F9) Settings key -- also mapped to something (don't recall what ATM)
+into method label _Q66 replace_content
+begin
+    Notify(\_SB.PCI0.LPC.KBD, 0x0364)\n
+ 
+end;
+
+# _Q67 (Fn+F10) Spotlight key
+into method label _Q67 replace_content
+begin
+    Notify(\_SB.PCI0.LPC.KBD, 0x0365)\n
+
+end;
+
+# _Q68 (Fn+F11) App switcher key
+into method label _Q68 replace_content
+begin
+    Notify(\_SB.PCI0.LPC.KBD, 0x0366)\n
+
+end;
+
+# _Q69 (Fn+F12) Launchpad key
+into method label _Q69 replace_content
+begin
+    Notify(\_SB.PCI0.LPC.KBD, 0x0367)\n
+
+end;
