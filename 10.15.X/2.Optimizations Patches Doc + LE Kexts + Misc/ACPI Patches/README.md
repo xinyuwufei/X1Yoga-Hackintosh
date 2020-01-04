@@ -1,3 +1,20 @@
+### Through Rehabman's Guide
+
+- DSDT Patches
+  - Convert to dsl by refs.txt
+    - iasl -da -dl -fe refs.txt DSDT.aml SSDT*.aml
+  - 4_fn_keys.txt
+  - 5_battery_thinkpad-x1yoga.txt
+  -  TODO : Fn keys and battery patches -> SSDT
+
+ - SSDT-UIAC-AL.aml
+    - this is the usb property injections
+    - I did this long time ago (back to 10.12.X)
+    - Releate kext to patch
+      	- com.apple.iokit.IOUSBHostFamily : 83FB0F0F -> 83FB3F0F
+      	- com.apple.driver.usb.AppleUSBXHCI: 83F90F0F -> 83F93F0F
+   	- May need USBInjectAll.kext
+    
 ### Through Patches via **[P-little](https://github.com/daliansky/P-little)**:
 
 #### Global replace:
@@ -17,21 +34,3 @@
   - XHC:_PRW to XPRW 
   - IGBE:_PRW to XPRW
   - _PRW: 6D
-
-### Through Rehabman's Guide
-
-- DSDT Patches
-  - Convert to dsl by refs.txt
-    - iasl -da -dl -fe refs.txt DSDT.aml SSDT*.aml
-  - 4_fn_keys.txt
-  - 5_battery_thinkpad-x1yoga.txt
-  -  TODO : Fn keys and battery patches -> SSDT
-
- - SSDT-UIAC-AL.aml
-    - this is the usb property injections
-    - I did this long time ago (back to 10.12.X)
-    - Releate kext to patch
-      	- com.apple.iokit.IOUSBHostFamily : 83FB0F0F -> 83FB3F0F
-      	- com.apple.driver.usb.AppleUSBXHCI: 83F90F0F -> 83F93F0F
-   	- May need USBInjectAll.kext
-
